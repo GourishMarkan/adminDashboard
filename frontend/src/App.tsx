@@ -1,25 +1,28 @@
 // import { useState } from "react";
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
 
-import Dashboard from "./pages/Dashboard";
-import { Permission, Search, View } from "./components";
+import "./App.css";
+import { Sidebar, Navbar } from "./components/index";
+import { Outlet } from "react-router-dom";
 function App() {
   // const [count, setCount] = useState(0);
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/view" element={<View />} />
-          <Route path="/permission" element={<Permission />} />
-          <Route path="/search" element={<Search />} />
-        </Routes>
-      </BrowserRouter>
+      <div>
+        <div className="h-[60px] w-full border-b">
+          <Navbar />
+        </div>
+        <div className="flex">
+          <div className="basis-[15%] h-100vh">
+            <Sidebar />
+          </div>
+          <div className="basis-[80%]">
+            <Outlet />
+          </div>
+        </div>
+      </div>
     </>
   );
 }

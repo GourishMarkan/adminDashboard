@@ -20,6 +20,7 @@ const Sidebar = () => {
      h-screen px-[25px] 
      flex
       flex-col
+      border-r border-gray
      "
     >
       <div className="flex items-center gap-4 py-5  ">
